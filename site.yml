@@ -1,5 +1,6 @@
 - name: Setup backupninja
   hosts: all
 
-  role:
+  roles:
     - role: backupninja
+      role: duplicity

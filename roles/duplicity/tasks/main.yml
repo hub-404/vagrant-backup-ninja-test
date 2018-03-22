@@ -5,9 +5,9 @@
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     gpgcheck: no
 
-- name: Install backupninja
+- name: Install duplicity
   yum:
-    name: backupninja
+    name: duplicity
     state: latest
     update_cache: yes
 

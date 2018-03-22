@@ -1,8 +1,5 @@
 - name: Setup backupninja
   hosts: all
-  tasks:
-    - name: Install backupninja
-      yum:
-        name: backupninja
-        state: present
-     
+
+  role:
+    - role: backupninja

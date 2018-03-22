@@ -1,0 +1,8 @@
+# These credentials should be provided in backupninja_ftp.yml
+# which is .gitignored
+#
+#backupninja_ftp_host: ftp.example.com
+#backupninja_ftp_user: backup
+#backupninja_ftp_password: nbusr123
+
+

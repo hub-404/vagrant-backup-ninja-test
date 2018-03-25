@@ -1,0 +1,5 @@
+backupninja_ftp_user: ftp
+backupninja_ftp_password: changeme
+backupninja_ftp_host: ftp.example.com
+backupninja_passphrace: changeme
+backupninja_backup_target: "ftp://{{ backup_ninja_ftp_user }}:{{ backup_ninja_ftp_password }}@{{ backupninja_ftp_host }}/"

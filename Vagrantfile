@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
         vb.memory = 2048
         vb.cpus = 2
         vb.linked_clone = true
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
   config.vm.provision "ansible" do |ansible|
       ansible.playbook = "site.yml"

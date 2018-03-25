@@ -1,0 +1,31 @@
+- name: Check gpg key is present
+  shell:
+      gpg -K '{{ gpg_key_id }}'
+  changed_when: false
+  ignore_errors: true
+  check_mode: false
+  register: _gpg
+  become: true
+  become_user: '{{ gpg_key_user }}'
+
+- set_fact:
+    _gpg_temp_key_file: '/tmp/gpg-key-{{ gpg_key_id }}.key'
+
+- name: Upload key when needed
+  copy:
+    src: 'files/gpg_keys/{{ gpg_key_id }}.key'
+    dest: '{{ _gpg_temp_key_file }}'
+    owner: '{{ gpg_key_user }}'
+    mode: 0400
+  when: _gpg|failed
+
+- name: Import key when required
+  shell:
+      gpg --import {{ _gpg_temp_key_file }}
+  when: _gpg|failed
+
+- name: Cleanup
+  file:
+    path: '{{ _gpg_temp_key_file }}'
+    state: absent
+  when: _gpg|failed

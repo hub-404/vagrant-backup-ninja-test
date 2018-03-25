@@ -1,0 +1,22 @@
+- name: Add EPEL
+  yum:
+    name:
+       - epel-release
+
+- name: Add common packages
+  yum:
+    name:
+       - gnupg2
+       - vim
+       - tmux
+       - haveged
+       - bash-completion
+       - dialog
+       - cowsay
+    state: present
+
+- name: Enable haveged
+  service:
+     name: haveged
+     state: started
+     enabled: true

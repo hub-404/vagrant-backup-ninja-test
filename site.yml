@@ -1,15 +1,9 @@
 - name: Setup backupninja
   hosts: all
   
-  pre_tasks: 
-    - name: Add vim
-      yum: 
-        name: vim
-        state: present
-            
-
   roles:
-    - role: backupninja
-    - role: duplicity
-    - role: vkill.gpg_key
+    - role: common-tasks
+    - role: local.gpg-key
       tags: gpg
+#    - role: backupninja
+#    - role: duplicity

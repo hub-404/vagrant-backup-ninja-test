@@ -1,4 +1,2 @@
-# from galaxy
-#
-
-- src: vkill.gpg_key
+# no roles from galaxy are needed ATM
+[]
